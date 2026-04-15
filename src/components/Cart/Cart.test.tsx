@@ -1,6 +1,6 @@
 
 import {render,screen, fireEvent,} from "@testing-library/react";
-import { expect, it,describe, } from "vitest";
+import { expect, it,describe,beforeAll } from "vitest";
 import App from "../../App";
 import { MantineProvider } from '@mantine/core';
 import "@testing-library/jest-dom"

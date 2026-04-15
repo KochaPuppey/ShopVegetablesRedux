@@ -16,7 +16,7 @@ const myColor = [
   '#449e59',
   '#398d4d',
   '#2a7a3f'
-];
+] as const;
 
 const theme = createTheme({
   colors: {

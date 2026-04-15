@@ -7,9 +7,4 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: '/Magazine/',
   plugins: [react()],
-  test: {
-    globals: true,
-    environment:'jsdom',
-    setupFiles: ['./src/test-setup.ts'],
-  }
 })

@@ -4,7 +4,8 @@ import './index.css'
 import App from './App.tsx'
 import { MantineProvider, createTheme,  } from '@mantine/core';
 import '@mantine/core/styles.css';
-
+import {Provider} from 'react-redux'
+import {setupStore} from './store/store'
 const myColor = [
   '#eafbee',
   '#dbf2e0',
@@ -26,10 +27,14 @@ const theme = createTheme({
   primaryShade: 6,
 });
 
+const store = setupStore();
+
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-     <MantineProvider theme={theme}>
-    <App /> 
-    </MantineProvider>
-  </StrictMode>,
+    <StrictMode>
+      <Provider store={store}>
+        <MantineProvider theme={theme}>
+          <App />
+        </MantineProvider>
+      </Provider>
+    </StrictMode>,
 )

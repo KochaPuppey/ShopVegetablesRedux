@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/KochaPuppey/ShopVegetablesRedux",
+  "homepage": "https://kochapuppey.github.io/ShopVegetablesRedux/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

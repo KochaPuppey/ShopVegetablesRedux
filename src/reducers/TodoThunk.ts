@@ -1,6 +1,15 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 
-export const fetchCart = createAsyncThunk (
+type Product = {
+    id: number;
+    name: string;
+    price: number;
+    image: string;
+    category: string;
+    selected: number;
+}
+
+export const fetchCart = createAsyncThunk <Product [], void, {rejectValue:string}> (
     'listCard/fetchCart',
     async function(_, {rejectWithValue}) {
         try {
@@ -12,7 +21,12 @@ export const fetchCart = createAsyncThunk (
             return data;
         }
         catch (error) {
-            return rejectWithValue(error?.message)
+            if (error instanceof Error) {
+                return rejectWithValue(error.message)
+            }
+            else {
+                return rejectWithValue('Неизвестная ошибка')
+            }
         }
     }
 )

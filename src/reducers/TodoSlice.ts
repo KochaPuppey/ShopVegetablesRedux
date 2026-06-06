@@ -16,10 +16,6 @@ const initialState: CartState = {
     cart: [],
 }
 
-const setError = (state,action) => {
-    state.isLoading = false;
-    state.error = action.payload;
-}
 
 export const TodoSlice = createSlice({
     name: 'listCard',
@@ -51,7 +47,10 @@ export const TodoSlice = createSlice({
                 state.isLoading = false;
                 state.listCard = action.payload
             })
-            .addCase(fetchCart.rejected, setError)
+            .addCase(fetchCart.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload ?? 'Неизвестная ошибка';
+            })
     }
 })
 
